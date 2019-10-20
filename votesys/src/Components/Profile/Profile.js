@@ -17,6 +17,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import logo from "./CUNY_Logo.png"
+
 const styles = theme => ({
     root: {
         display: 'flex',
@@ -72,18 +73,19 @@ export default class Profile extends Component {
                 </AppBar>
             </div>
             <br/>
-            <div align="center">
+            <div align="left">
                 <img src={logo} width="20%" alt="cuny" />
             </div>
                 <br/>
-                    <div style={{width: '100%'}}>
+                    <div style={{width: '100%'}} align ="center">
                         <Typography variant="h5">Welcome, {this.state.firstName} {this.state.lastName}</Typography>
-                        <Box display="flex" justifyContent="flex-start" flexWrap="wrap">
-                            <img src={this.state.img} style={{width: 200, height:200}}/>
+                        <Box display="flex" justifyContent="center" flexWrap="wrap">
+                            <img src={logo} style={{width: 200, height:200}}/>
                         </Box>
                         <br/>
                         <Typography variant="h5">your email: {this.state.email}</Typography>
                         <Typography variant="h5">public key: {this.state.pk}</Typography>
+                        <br/><br/>
                         <Typography component="h1" color = 'primary' variant="h4" align="center">At TrulyVote,</Typography>
                         <Typography variant="h5" align="center">Your vote is not held in any central repository, by any government or any organization.</Typography> 
                         <Typography align="center" variant="h5" >Instead, your vote is held in a decentralized blockchain system.</Typography>

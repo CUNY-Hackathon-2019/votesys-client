@@ -120,7 +120,7 @@ class SignUp extends React.Component {
     else {
       return (
       <div>
-        <div align="center">
+        <div align="left">
           <img src={logo} width="20%" alt="cuny" />
         </div>
         <Container component="main" maxWidth="xs">
