@@ -12,11 +12,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import {Redirect} from 'react-router-dom';
-<<<<<<< HEAD
-=======
 import { withStyles } from '@material-ui/core/styles';
 import './SignIn.css';
->>>>>>> 29692571f5519f859bdeacbdf818768a9936a132
 
 const styles = theme => ({
   '@global': {
@@ -40,13 +37,6 @@ const styles = theme => ({
   },
   submit: {
       margin: theme.spacing(3, 0, 2),
-<<<<<<< HEAD
-    },
-}));
-
-const classes = useStyles();
-export default class Signin extends React.Component{
-=======
   },
 });
 
@@ -87,7 +77,6 @@ class SignIn extends React.Component{
     }
   }
 
->>>>>>> 29692571f5519f859bdeacbdf818768a9936a132
   render(){
     const {classes} = this.props
     if(localStorage.token)
