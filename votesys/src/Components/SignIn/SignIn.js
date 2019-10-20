@@ -10,98 +10,152 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {Redirect} from 'react-router-dom';
+<<<<<<< HEAD
+=======
+import { withStyles } from '@material-ui/core/styles';
+import './SignIn.css';
+>>>>>>> 29692571f5519f859bdeacbdf818768a9936a132
 
-const useStyles = makeStyles(theme => ({
-    '@global': {
+const styles = theme => ({
+  '@global': {
       body: {
-        backgroundColor: theme.palette.common.white,
+          backgroundColor: theme.palette.common.white,
       },
-    },
-    paper: {
+  },
+  paper: {
       marginTop: theme.spacing(8),
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-    },
-    avatar: {
+  },
+  avatar: {
       margin: theme.spacing(1),
       backgroundColor: theme.palette.secondary.main,
-    },
-    form: {
+  },
+  form: {
       width: '100%', // Fix IE 11 issue.
-      marginTop: theme.spacing(3),
-    },
-    submit: {
+      marginTop: theme.spacing(1),
+  },
+  submit: {
       margin: theme.spacing(3, 0, 2),
+<<<<<<< HEAD
     },
 }));
 
 const classes = useStyles();
 export default class Signin extends React.Component{
+=======
+  },
+});
+
+class SignIn extends React.Component{
+  constructor(props)
+  {
+      super(props);
+      this.state = {
+        email: "",
+        password:""
+    };
+  }
+
+  handleChange = event => ({target}) => {
+    this.setState({[event]: target.value});
+  }
+
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    try{
+      let credentials = {
+        email: this.state.email,
+        password: this.state.password
+      }
+      let res = await axios.put('', credentials);
+      if(res) {
+        
+      }
+
+    }catch(err) {
+      console.log(err);
+    }
+  }
+
+  handleKeyPress = event => {
+    if(event.key === 'Enter') {
+      this.handleSubmit();
+    }
+  }
+
+>>>>>>> 29692571f5519f859bdeacbdf818768a9936a132
   render(){
+    const {classes} = this.props
     if(localStorage.token)
     {
       return (<Redirect to="/main" />);
     }
     return (
-        <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs">
           <CssBaseline />
           <div className={classes.paper}>
-            <Typography component="h1" color="primary" variant="h4">
-              ChoiceVote
-            </Typography>
-            <Avatar className={classes.avatar}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5">
-              Sign in
-            </Typography>
-            <form className={classes.form} noValidate>
-              <Grid container spacing={2}>
-                <Grid item xs={12}>
+              <Typography component="h1" color='primary' variant="h4">
+                  ChoiceVote
+          </Typography>
+              <Avatar className={classes.avatar}>
+                  <LockOutlinedIcon />
+              </Avatar>
+              <Typography component="h1" variant="h5">
+                  Sign in
+              </Typography>
+              <form className={classes.form} noValidate>
                   <TextField
-                    variant="outlined"
-                    fullWidth
-                    id="email"
-                    label="Email Address"
-                    name="email"
-                    autoComplete="email"
+                      variant="outlined"
+                      margin="normal"
+                      fullWidth
+                      id="email"
+                      label="Email Address"
+                      name="email"
+                      placeholder='.cuny.edu'
+                      autoComplete="email"
+                      autoFocus
+                      onChange={this.handleChange('email')}
                   />
-                </Grid>
-                <Grid item xs={12}>
                   <TextField
-                    variant="outlined"
-                    fullWidth
-                    name="password"
-                    label="Password"
-                    type="password"
-                    id="password"
-                    autoComplete="current-password"
+                      variant="outlined"
+                      margin="normal"
+                      fullWidth
+                      name="password"
+                      label="Password"
+                      type="password"
+                      id="password"
+                      autoComplete="current-password"
+                      onChange={this.handleChange('password')}
                   />
-                </Grid>
-              </Grid>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-              >
-                Sign in
-              </Button>
-              <Grid container justify="flex-end">
-                <Grid item>
-                  <Link href="/signup" variant="body2">
-                    Don't have an account? Sign up
-                  </Link>
-                </Grid>
-              </Grid>
-            </form>
+                  <Button
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      color="primary"
+                      className={classes.submit}
+                      //onClick={this.handleSubmit}
+                  >
+                      Sign In
+                  </Button>
+                  <Grid container>
+                      <Grid item>
+                          <Link href="/signup" variant="body2">
+                              Don't have an account? Sign Up
+                          </Link>
+                      </Grid>
+                  </Grid>
+              </form>
+              {/* {this.state.error.length > 0 ? (<h3 style={{ color: 'Red' }}>{this.state.error}</h3>) : (<div></div>)} */}
           </div>
-        </Container>
-    );
+          <div>
+          </div>
+      </Container>
+    )
   }
 }
+
+export default withStyles(styles)(SignIn);
