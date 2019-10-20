@@ -57,8 +57,8 @@ export default class Profile extends Component {
     }
 
     render() {
-        //const {classes} = this.props
-        console.log(this.state)
+        // //const {classes} = this.props
+        // console.log(this.state)
         return (
         <div>
             <div>
