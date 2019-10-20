@@ -85,7 +85,7 @@ export default class Election extends Component {
                     />
                 </div>
                 <div>
-                    <h1>Baruch Student Government Elections</h1>
+                    <Typography component="h1" color = 'primary' variant="h3">CUNY Student Government Elections</Typography>
                     <hr></hr>
                     <form>
                         <div>
