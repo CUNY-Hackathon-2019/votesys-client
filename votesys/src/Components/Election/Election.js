@@ -119,19 +119,15 @@ export default class Election extends Component {
                                 </label>
                             </div>
                         </div>
-                        {/* <Button
-                            type="submit"
-                            fullWidth
-                            //align="right"
-                            variant="contained"
-                            color="primary"
-                            // className={classes.submit}
-                            onClick={this.handleSubmit}
-                        >
-                        VOTE
-                        </Button> */}
-                        {/* <submit><button onSubmit={this.handleSubmit}>VOTE!</button></submit> */}
-                        <input type ="submit" value="submit" />
+                        <Grid item align="center">
+                            <Button
+                                type="submit"
+                                variant="contained"
+                                color="primary"
+                            >
+                            VOTE
+                            </Button>
+                        </Grid>  
                     </form>  
                 </div>
                 <hr></hr>
