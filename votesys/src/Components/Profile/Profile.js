@@ -34,6 +34,10 @@ export default class Profile extends Component {
         })
     }
 
+    logout = () => {
+        localStorage.removeItem('token')
+    }
+
     render() {
         console.log(this.state)
         return (
@@ -50,7 +54,9 @@ export default class Profile extends Component {
                             <h2>Your email is <span>{this.state.email}</span></h2>
                             <h2>Your public key is: <span>{this.state.pk}</span></h2>
                         </div>
+                        <button onClick={() => this.logout}>Logout</button>
                     </div>
+
                 </div>
                 
             </div>
