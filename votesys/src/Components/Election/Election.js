@@ -64,10 +64,11 @@ export default class Election extends Component {
         const {classes} = this.props
         if (this.state.hasVoted) {
             return (
-                <div>
-                    <h1>Thanks for voting!</h1>
-                    <h2>Your vote has now been updated on the public ledger</h2>
-                </div>
+                <Grid item align="center">
+                    <br/><br/>
+                    <Typography component="h1" color = 'primary' variant="h4">Thanks for voting!</Typography><br/>
+                    <Typography component="h1" color = 'primary' variant="h5">Your vote has now been updated on the public ledger</Typography>
+                </Grid>
             )
         }
         return (
@@ -95,7 +96,7 @@ export default class Election extends Component {
                     <hr></hr>
                     <form onSubmit={this.handleSubmit}>
                         <div>
-                            <h2>President:</h2>
+                            <Typography component="h1" color = 'primary' variant="h4">President:</Typography>
                             <div>
                                 <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" />
                                 <label>
