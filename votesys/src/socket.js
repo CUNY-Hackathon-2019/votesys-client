@@ -10,4 +10,5 @@ socket.on('joined', (data) =>{
     console.log(`${data} has joined the room`);
 })
 
+
 export default socket;

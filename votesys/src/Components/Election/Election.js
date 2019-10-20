@@ -14,6 +14,8 @@ import Container from '@material-ui/core/Container';
 import {Redirect} from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
+import Block from '../../Block';
+import socket from '../../socket';
 
 export default class Election extends Component {
     constructor(props) {
@@ -22,6 +24,12 @@ export default class Election extends Component {
             hasVoted: false
         }
     }
+
+    handleSubmit = () => {
+        let voteBlock = new Block(1,"1231",2); //TODO
+        socket.emit('voteBlock', {voteBlock});
+    }
+
     render() {
         if (this.state.hasVoted) {
             return (
@@ -65,7 +73,7 @@ export default class Election extends Component {
                                 </label>
                             </div>
                         </div>
-                        <submit><button>VOTE!</button></submit>
+                        <submit><button onSubmit={}>VOTE!</button></submit>
                     </form>  
                 </div>
                 <hr></hr>

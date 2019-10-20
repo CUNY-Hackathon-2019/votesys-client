@@ -66,18 +66,21 @@ class SignIn extends React.Component{
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    try{
-      let credentials = {
-        email: this.state.email,
-        password: this.state.password
-      }
-      let res = await axios.put('', credentials);
-      if(res) {
-
-      }
-
-    }catch(err) {
-      console.log(err);
+    console.log("PRESSED!")
+    let credentials = {
+      email: this.state.email,
+      password: this.state.password
+    }
+    console.log(credentials)
+    let res = await axios.put("https://cuny-hacks-backend.herokuapp.com/api/auth", credentials)
+    if (res) {
+      this.setState({
+        loggedIn: true,
+        profile: res.data
+      })
+    }
+    else {
+      console.log("Error")
     }
   }
 
