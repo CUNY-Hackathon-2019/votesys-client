@@ -109,7 +109,7 @@ class SignIn extends React.Component{
           <CssBaseline />
           <div className={classes.paper}>
               <Typography component="h1" color='primary' variant="h4">
-                  ChoiceVote
+                  TrulyVote
           </Typography>
               <Avatar className={classes.avatar}>
                   <LockOutlinedIcon />

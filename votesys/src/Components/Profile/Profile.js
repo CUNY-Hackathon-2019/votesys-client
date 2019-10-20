@@ -12,6 +12,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import {Redirect} from 'react-router-dom';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 
@@ -58,6 +60,17 @@ export default class Profile extends Component {
         //const {classes} = this.props
         console.log(this.state)
         return (
+        <div>
+            <div>
+                <AppBar position="static">
+                    <Toolbar>
+                        <Typography variant="h5" display="flex" style={{flex:1}}>
+                            TrulyVote
+                        </Typography> 
+                        <Button color='inherit' fullWidthjustify="flex-end" onClick={()=>this.logout}>Logout</Button>
+                    </Toolbar>
+                </AppBar>
+            </div>
             <div>
                 <div>
                 <Typography variant="h5">Welcome, {this.state.firstName} {this.state.lastName}</Typography>
@@ -72,16 +85,18 @@ export default class Profile extends Component {
                             {/* <h2>Your email is <span>{this.state.email}</span></h2>
                             <h2>Your public key is: <span>{this.state.pk}</span></h2> */}
                             <hr></hr>
-                            <Typography variant="h4" color="primary">At Truly-Vote,</Typography>
+                            <Typography component="h1" color = 'primary' variant="h4">At TrulyVote,</Typography>
                             <Typography variant="h5" >Your vote is not held in any central repository, by any government or any organization.</Typography> 
                             <Typography variant="h5" >Instead, your vote is held in a decentralized blockchain system.</Typography>
                             {/* <h2>Your vote is not held in any central repository, by any government or any organization. Instead, your vote is held on a decentralized blockchain system. </h2> */}
                             {/* <hr></hr> */}
                             <br></br>
                         </div>
-                        <button onClick={() => this.logout}>Logout</button>
+                        {/* <button onClick={() => this.logout}>Logout</button> */}
+                        <Button color='inherit' onClick={()=>this.logout}>Logout</Button>
                     </div>
                 </div>
+            </div>
             </div>
         )
     }

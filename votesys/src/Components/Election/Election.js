@@ -17,6 +17,30 @@ import axios from 'axios';
 import Block from '../../Block';
 import socket from '../../socket';
 
+// const styles = theme => ({
+//     '@global': {
+//         body: {
+//             backgroundColor: theme.palette.common.white,
+//         },
+//     },
+//     paper: {
+//         marginTop: theme.spacing(8),
+//         display: 'flex',
+//         flexDirection: 'column',
+//         alignItems: 'center',
+//     },
+//     avatar: {
+//         margin: theme.spacing(1),
+//         backgroundColor: theme.palette.secondary.main,
+//     },
+//     form: {
+//         width: '100%', // Fix IE 11 issue.
+//         marginTop: theme.spacing(1),
+//     },
+//     submit: {
+//         margin: theme.spacing(3, 0, 2),
+//       },
+// });
 export default class Election extends Component {
     constructor(props) {
         super(props)
@@ -31,6 +55,7 @@ export default class Election extends Component {
     }
 
     render() {
+        const {classes} = this.props
         if (this.state.hasVoted) {
             return (
                 <div>
@@ -87,7 +112,18 @@ export default class Election extends Component {
                                 </label>
                             </div>
                         </div>
-                        <submit><button onSubmit={this.handleSubmit}>VOTE!</button></submit>
+                        <Button
+                            type="submit"
+                            fullWidth
+                            //align="right"
+                            variant="contained"
+                            color="primary"
+                            // className={classes.submit}
+                            onClick={this.handleSubmit}
+                        >
+                        VOTE
+                        </Button>
+                        {/* <submit><button onSubmit={this.handleSubmit}>VOTE!</button></submit> */}
                     </form>  
                 </div>
                 <hr></hr>
