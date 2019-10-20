@@ -73,7 +73,7 @@ export default class Election extends Component {
                                 </label>
                             </div>
                         </div>
-                        <submit><button onSubmit={}>VOTE!</button></submit>
+                        <submit><button onSubmit={this.handleSubmit}>VOTE!</button></submit>
                     </form>  
                 </div>
                 <hr></hr>
