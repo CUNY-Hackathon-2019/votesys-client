@@ -97,27 +97,27 @@ export default class Election extends Component {
                     />
                 </div>
                 <div>
-                    <Typography component="h1" color = 'primary' variant="h3">CUNY Student Government Elections</Typography>
-                    <hr></hr>
+                    <Typography component="h1" color = 'primary' variant="h3" align="center">CUNY Student Government Elections</Typography>
+                    <br/><br/>
                     <form onSubmit={this.handleSubmit}>
-                        <div>
+                        <div align="center">
                             <FormControl component="fieldset">
-                                <FormLabel component="legend">President</FormLabel>
+                                <Typography component="h1" variant="h4">President</Typography>
                                 <RadioGroup aria-label="president" name="president">
                                     <div>
-                                        <img style={{width:200, height:200}} src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" />
+                                        <img style={{width:200, height:200}} src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" /><br/>
                                         <FormControlLabel value="1e" control={<Radio color="primary"/>} label="Aleena Sheikh" />
                                     </div>
                                     <div>
-                                        <img style={{width:200, height:200}} src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" />
+                                        <img style={{width:200, height:200}} src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" /><br/>
                                         <FormControlLabel value="2" control={<Radio color="primary"/>} label="Sami Hussein" />
                                     </div>
                                     <div>
-                                        <img style={{width:200, height:200}} src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" />
+                                        <img style={{width:200, height:200}} src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" /><br/>
                                         <FormControlLabel value="3" control={<Radio color="primary"/>} label="Tushar Malakar" />
                                     </div>  
-                                </RadioGroup>
-                            </FormControl>
+                                    </RadioGroup>
+                            </FormControl>                  
                             {/* <Typography component="h1" color = 'primary' variant="h4">President:</Typography>
                             <div>
                                 <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" />
