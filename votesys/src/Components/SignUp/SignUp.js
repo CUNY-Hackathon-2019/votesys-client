@@ -48,15 +48,28 @@ class SignUp extends React.Component {
       lastname: "",
       id: "",
       email: "",
-      password:""
+      password:"",
+      img: ""
     };
   }
 
   handleChange = event => ({target}) => {
     this.setState({[event]: target.value});
   }
+  
+  generateKey = (keyLength) => {
+    var randomstring = '';
+    let chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz*&-%/!?*+=()";
+    
+    for (var i=0; i < keyLength; i++) {
+      var rnum = Math.floor(Math.random() * chars.length);
+      randomstring += chars.substring(rnum,rnum+1);
+    }
+    return randomstring;
+  };
 
   handleSubmit = async (event) => {
+    const apiLink = "link.com/api"
     event.preventDefault();
     try {
       let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -65,13 +78,16 @@ class SignUp extends React.Component {
               error:'Missing proper credentials.'
           })
       } else {
-          let newUser = {
-              firstname: this.state.firstname,
-              lastname: this.state.lastname,
-              email: this.state.email,
-              password: this.state.password
-          }
-          let res = await axios.post('')
+          let pk_ = await this.generateKey(25)
+          let res = await axios.post(apiLink, {
+            idNumber: this.state.id,
+            email: this.state.email,
+            firstName: this.state.firstname,
+            lastName: this.state.lastname,
+            img: this.state.img,
+            password: this.state.password,
+            pk: pk_
+          })
           if(res){
             
           }
