@@ -50,6 +50,10 @@ export default class Profile extends Component {
         })
     }
 
+    logout = () => {
+        localStorage.removeItem('token')
+    }
+
     render() {
         //const {classes} = this.props
         console.log(this.state)
@@ -75,6 +79,7 @@ export default class Profile extends Component {
                             {/* <hr></hr> */}
                             <br></br>
                         </div>
+                        <button onClick={() => this.logout}>Logout</button>
                     </div>
                 </div>
             </div>

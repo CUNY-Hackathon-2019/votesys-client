@@ -74,6 +74,7 @@ class SignIn extends React.Component{
     console.log(credentials)
     let res = await axios.put("https://cuny-hacks-backend.herokuapp.com/api/auth", credentials)
     if (res) {
+      console.log(res.data)
       this.setState({
         loggedIn: true,
         profile: res.data
@@ -93,19 +94,12 @@ class SignIn extends React.Component{
   render(){
 
     const {classes} = this.props
-    if(!this.state.loggedIn)
+    if(this.state.loggedIn)
     {
-      let profile = {
-        firstName: "Edward",
-        lastName: "Snowden",
-        email: "me@me.com",
-        pk: "123456",
-        img: "https://upload.wikimedia.org/wikipedia/commons/6/60/Edward_Snowden-2.jpg"
-      }
       return (
         <div>
-          <Profile profile={profile} />
-          <Election profile={profile} />
+          <Profile profile={this.state.profile} />
+          <Election profile={this.state.profile} />
           <Poll />
         </div>
       );
