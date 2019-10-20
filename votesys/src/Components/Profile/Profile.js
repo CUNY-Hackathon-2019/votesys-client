@@ -17,6 +17,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import logo from "./Anon.png"
+import Icon from './LogoMakr.png';
 
 const styles = theme => ({
     root: {
@@ -74,11 +75,11 @@ export default class Profile extends Component {
             </div>
             <br/>
             <div align="left">
-                <img src={logo} width="20%" alt="cuny" />
+                <img src={Icon} width="20%" alt="cuny" />
             </div>
                 <br/>
                     <div style={{width: '100%'}} align ="center">
-                        <Typography variant="h5">Welcome, {this.state.firstName} {this.state.lastName}</Typography>
+                        <Typography variant="h5">Welcome, Anonymous voter!</Typography>
                         <Box display="flex" justifyContent="center" flexWrap="wrap">
                             <img src={logo} style={{width: 200, height:200}}/>
                         </Box>
