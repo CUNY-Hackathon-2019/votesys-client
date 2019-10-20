@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { withStyles } from '@material-ui/core/styles';
+import axios from 'axios';
 // import "./Register.css";
 
 const styles = theme => ({
@@ -45,6 +46,7 @@ class SignUp extends React.Component {
     this.state = {
       firstname: "",
       lastname: "",
+      id: "",
       email: "",
       password:""
     };
@@ -110,6 +112,7 @@ class SignUp extends React.Component {
                         variant="outlined"
                         fullWidth
                         id="firstName"
+                        placeholder= "Bob"
                         label="First Name"
                         autoFocus
                         onChange={this.handleChange('firstname')}
@@ -121,10 +124,23 @@ class SignUp extends React.Component {
                         fullWidth
                         id="lastName"
                         label="Last Name"
+                        placeholder= "Dylan"
                         name="lastName"
                         autoComplete="lname"
                         onChange={this.handleChange('lastname')}
                       />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                         variant="outlined"
+                          fullWidth
+                          id="id"
+                          label="Student ID"
+                          placeholder='12345678'
+                          name="id"
+                          autoComplete="id"
+                          onChange={this.handleChange('id')}
+                        />
                     </Grid>
                     <Grid item xs={12}>
                       <TextField
