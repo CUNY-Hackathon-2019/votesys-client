@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import {Redirect} from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
     '@global': {
@@ -36,8 +37,9 @@ const useStyles = makeStyles(theme => ({
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
-  }));
+}));
 
+const classes = useStyles();
 export default class Signin extends React.Component{
   render(){
     if(localStorage.token)
