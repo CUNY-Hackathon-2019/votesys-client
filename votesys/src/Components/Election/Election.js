@@ -3,7 +3,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
@@ -16,6 +15,12 @@ import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import Block from '../../Block';
 import socket from '../../socket';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 // const styles = theme => ({
 //     '@global': {
@@ -96,7 +101,24 @@ export default class Election extends Component {
                     <hr></hr>
                     <form onSubmit={this.handleSubmit}>
                         <div>
-                            <Typography component="h1" color = 'primary' variant="h4">President:</Typography>
+                            <FormControl component="fieldset">
+                                <FormLabel component="legend">President</FormLabel>
+                                <RadioGroup aria-label="president" name="president">
+                                    <div>
+                                        <img style={{width:200, height:200}} src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" />
+                                        <FormControlLabel value="1e" control={<Radio color="primary"/>} label="Aleena Sheikh" />
+                                    </div>
+                                    <div>
+                                        <img style={{width:200, height:200}} src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" />
+                                        <FormControlLabel value="2" control={<Radio color="primary"/>} label="Sami Hussein" />
+                                    </div>
+                                    <div>
+                                        <img style={{width:200, height:200}} src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" />
+                                        <FormControlLabel value="3" control={<Radio color="primary"/>} label="Tushar Malakar" />
+                                    </div>  
+                                </RadioGroup>
+                            </FormControl>
+                            {/* <Typography component="h1" color = 'primary' variant="h4">President:</Typography>
                             <div>
                                 <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" />
                                 <label>
@@ -117,7 +139,7 @@ export default class Election extends Component {
                                     <input type="radio" name="president" value="3" />
                                     Tushar Malakar
                                 </label>
-                            </div>
+                            </div> */}
                         </div>
                         <Grid item align="center">
                             <Button

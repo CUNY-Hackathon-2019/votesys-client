@@ -74,18 +74,28 @@ export default class Profile extends Component {
             <div>
                 <div>
                 <br/>
-                    <img src={this.state.img} style={{width: 200, height:200}}/>
-                        <Grid container>
-                            <Grid item align="right">
-                                <Typography variant="h5">Welcome, {this.state.firstName} {this.state.lastName}</Typography>
-                                <Typography variant="h5">email: {this.state.email}</Typography>
-                                <Typography variant="h5">public key: {this.state.pk}</Typography>
-                                <br/><br/>
-                                <Typography component="h1" color = 'primary' variant="h4">At TrulyVote,</Typography>
-                                <Typography variant="h5" >Your vote is not held in any central repository, by any government or any organization.</Typography> 
-                                <Typography variant="h5" >Instead, your vote is held in a decentralized blockchain system.</Typography>
-                            </Grid>
-                        </Grid>
+                    <div style={{width: '100%'}}>
+                        <Typography variant="h5">Welcome, {this.state.firstName} {this.state.lastName}</Typography>
+                        <Box display="flex" justifyContent="flex-start" flexWrap="wrap">
+                            <img src={this.state.img} style={{width: 200, height:200}}/>
+                        </Box>
+                        <br/>
+                        <Typography variant="h5">your email: {this.state.email}</Typography>
+                        <Typography variant="h5">public key: {this.state.pk}</Typography>
+                        <Box display="flex" justifyContent="center" flexWrap="noWrap">
+                            {/* <Grid container> */}
+                                <Grid item align="right">
+                                    <Typography variant="h5">Welcome, {this.state.firstName} {this.state.lastName}</Typography>
+                                    <Typography variant="h5">email: {this.state.email}</Typography>
+                                    <Typography variant="h5">public key: {this.state.pk}</Typography>
+                                    <br/><br/>
+                                    <Typography component="h1" color = 'primary' variant="h4">At TrulyVote,</Typography>
+                                    <Typography variant="h5" >Your vote is not held in any central repository, by any government or any organization.</Typography> 
+                                    <Typography align="center" variant="h5" >Instead, your vote is held in a decentralized blockchain system.</Typography>
+                                </Grid>
+                            {/* </Grid> */}
+                        </Box>
+                    </div>         
                 </div>
             </div>
             </div>
