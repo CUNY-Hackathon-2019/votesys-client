@@ -43,6 +43,8 @@ class SignUp extends React.Component {
   constructor(props) {
     super();
     this.state = {
+      firstname: "",
+      lastname: "",
       email: "",
       password:""
     };
@@ -53,8 +55,29 @@ class SignUp extends React.Component {
   }
 
   handleSubmit = async (event) => {
-
+    event.preventDefault();
+    try {
+      let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if(this.state.firstname.length === 0 || this.state.lastname.length === 0 || this.state.password.length === 0 || this.state.email.length === 0 || !re.test(this.state.email)) {
+          this.setState({
+              error:'Missing proper credentials.'
+          })
+      } else {
+          let newUser = {
+              firstname: this.state.firstname,
+              lastname: this.state.lastname,
+              email: this.state.email,
+              password: this.state.password
+          }
+          let res = await axios.post('')
+          if(res){
+            
+          }
+      }
+  } catch (err) {
+      console.log(err);
   }
+}
 
   handleKeyPress = event => {
     if(event.key === 'Enter') {
@@ -80,30 +103,53 @@ class SignUp extends React.Component {
               </Typography>
               <form className={classes.form} noValidate>
                   <Grid container spacing={2}>
-                      <Grid item xs={12}>
-                          <TextField
-                              variant="outlined"
-                              fullWidth
-                              id="email"
-                              label="Email Address"
-                              placeholder='.cuny.edu'
-                              name="email"
-                              autoComplete="email"
-                              onChange={this.handleChange('email')}
-                          />
-                      </Grid>
-                      <Grid item xs={12}>
-                          <TextField
-                              variant="outlined"
-                              fullWidth
-                              name="password"
-                              label="Password"
-                              type="password"
-                              id="password"
-                              autoComplete="current-password"
-                              onChange={this.handleChange('password')}
-                          />
-                      </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        autoComplete="fname"
+                        name="firstName"
+                        variant="outlined"
+                        fullWidth
+                        id="firstName"
+                        label="First Name"
+                        autoFocus
+                        onChange={this.handleChange('firstname')}
+                        />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        variant="outlined"
+                        fullWidth
+                        id="lastName"
+                        label="Last Name"
+                        name="lastName"
+                        autoComplete="lname"
+                        onChange={this.handleChange('lastname')}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                         variant="outlined"
+                          fullWidth
+                          id="email"
+                          label="Email Address"
+                          placeholder='.cuny.edu'
+                          name="email"
+                          autoComplete="email"
+                          onChange={this.handleChange('email')}
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        variant="outlined"
+                        fullWidth
+                        name="password"
+                        label="Password"
+                        type="password"
+                        id="password"
+                        autoComplete="current-password"
+                        onChange={this.handleChange('password')}
+                      />
+                    </Grid>
                   </Grid>
                   <Button
                       type="submit"
