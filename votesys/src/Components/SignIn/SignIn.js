@@ -15,6 +15,7 @@ import {Redirect} from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import './SignIn.css';
+import socket from '../../socket';
 import Profile from '../Profile/Profile'
 import Election from '../Election/Election'
 import Poll from '../Poll/Poll'
@@ -55,24 +56,31 @@ class SignIn extends React.Component{
     };
   }
 
+  componentDidMount(){
+    socket.emit('voteBlock', {user: 'Sami', pass: 123, vote: 'trump'});
+  }
+
   handleChange = event => ({target}) => {
     this.setState({[event]: target.value});
   }
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    try{
-      let credentials = {
-        email: this.state.email,
-        password: this.state.password
-      }
-      let res = await axios.put('', credentials);
-      if(res) {
-
-      }
-
-    }catch(err) {
-      console.log(err);
+    console.log("PRESSED!")
+    let credentials = {
+      email: this.state.email,
+      password: this.state.password
+    }
+    console.log(credentials)
+    let res = await axios.put("https://cuny-hacks-backend.herokuapp.com/api/auth", credentials)
+    if (res) {
+      this.setState({
+        loggedIn: true,
+        profile: res.data
+      })
+    }
+    else {
+      console.log("Error")
     }
   }
 
