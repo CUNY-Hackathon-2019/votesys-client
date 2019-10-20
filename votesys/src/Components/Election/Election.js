@@ -82,7 +82,7 @@ export default class Election extends Component {
                     <input type="text" placeholder="Search for elections on the blockchain" />
                     <button>Search</button>
                 </div> */}
-                <div className="search-container">
+                <div className="search-container" align="right">
                     <TextField
                         variant="outlined"
                         margin="normal"
@@ -92,7 +92,7 @@ export default class Election extends Component {
                         placeholder='Search for elections on the blockchain'
                         autoFocus
                         onChange={this.handleChange}
-                        style={{ width: 750 }}
+                        style={{ width: 300 }}
                         onKeyPress = {this.handleKeyPress}
                     />
                 </div>

@@ -14,6 +14,7 @@ import Container from '@material-ui/core/Container';
 import { withStyles } from '@material-ui/core/styles';
 import {Redirect} from 'react-router-dom'
 import axios from 'axios';
+import logo from "./CUNY_Logo.png"
 // import "./Register.css";
 
 const styles = theme => ({
@@ -118,6 +119,10 @@ class SignUp extends React.Component {
     }
     else {
       return (
+      <div>
+        <div align="center">
+          <img src={logo} width="20%" alt="cuny" />
+        </div>
         <Container component="main" maxWidth="xs">
             <CssBaseline />
             <div className={classes.paper}>
@@ -215,6 +220,7 @@ class SignUp extends React.Component {
                 <h3 style={{color:'Red'}}>{this.state.error}</h3>
             </div>
         </Container>
+      </div>
       )
     }
   }

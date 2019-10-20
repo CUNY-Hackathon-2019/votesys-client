@@ -19,6 +19,7 @@ import socket from '../../socket';
 import Profile from '../Profile/Profile'
 import Election from '../Election/Election'
 import Poll from '../Poll/Poll'
+import logo from "./CUNY_Logo.png"
 
 const styles = theme => ({
   '@global': {
@@ -103,6 +104,10 @@ class SignIn extends React.Component{
       );
     }
     return (
+    <div>
+      <div align="center">
+        <img src={logo} width="20%" alt="cuny" />
+      </div>
       <Container component="main" maxWidth="xs">
           <CssBaseline />
           <div className={classes.paper}>
@@ -162,6 +167,7 @@ class SignIn extends React.Component{
           <div>
           </div>
       </Container>
+    </div>
     )
   }
 }
