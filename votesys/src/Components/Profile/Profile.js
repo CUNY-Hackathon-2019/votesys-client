@@ -55,35 +55,28 @@ export default class Profile extends Component {
         console.log(this.state)
         return (
             <div>
-                {/* <div>
-                    <img src={this.state.img} />
+                <div>
+                <Typography variant="h5">Welcome, {this.state.firstName} {this.state.lastName}</Typography>
+                <br/>
+                    <img src={this.state.img} style={{width: 200, height:200}}/>
                     <div>
                         <div>
-                            <h1>{this.state.firstName} {this.state.lastName}</h1>
+                            {/* <h1>{this.state.firstName} {this.state.lastName}</h1> */}
+                            {/* <hr></hr> */}
+                            <Typography variant="h5">{this.state.email}</Typography>
+                            <Typography variant="h5">{this.state.pk}</Typography>
+                            {/* <h2>Your email is <span>{this.state.email}</span></h2>
+                            <h2>Your public key is: <span>{this.state.pk}</span></h2> */}
                             <hr></hr>
-                            <h2>Welcome to Truly-Vote. Your vote is not held in any central repository, by any government or any organization. Instead, your vote is held on a decentralized blockchain system. </h2>
-                            <hr></hr>
+                            <Typography variant="h4" color="primary">At Truly-Vote,</Typography>
+                            <Typography variant="h5" >Your vote is not held in any central repository, by any government or any organization.</Typography> 
+                            <Typography variant="h5" >Instead, your vote is held in a decentralized blockchain system.</Typography>
+                            {/* <h2>Your vote is not held in any central repository, by any government or any organization. Instead, your vote is held on a decentralized blockchain system. </h2> */}
+                            {/* <hr></hr> */}
                             <br></br>
-                            <h2>Your email is <span>{this.state.email}</span></h2>
-                            <h2>Your public key is: <span>{this.state.pk}</span></h2>
                         </div>
                     </div>
-                </div> */}
-                <Avatar
-                    alt="Person">
-                    {/* className={classes.avatar} */}
-                    {/* width=60
-                    height=60 */}
-                    src={this.state.img}
-                ></Avatar>
-                <Typography
-                    // className={classes.name}
-                    variant="h4"
-                >   
-                {this.state.firstname} {this.state.lastName}
-                </Typography>
-                <Typography variant="body2">{this.state.email}</Typography>
-                <Typography variant="body2">{this.state.pk}</Typography>     
+                </div>
             </div>
         )
     }
