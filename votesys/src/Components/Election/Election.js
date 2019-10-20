@@ -33,9 +33,23 @@ export default class Election extends Component {
         }
         return (
             <div>
-                <div>
+                {/* <div>
                     <input type="text" placeholder="Search for elections on the blockchain" />
                     <button>Search</button>
+                </div> */}
+                <div className="search-container">
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        id="search"
+                        label="Search"
+                        name="search"
+                        placeholder='Search for elections on the blockchain'
+                        autoFocus
+                        onChange={this.handleChange}
+                        style={{ width: 750 }}
+                        onKeyPress = {this.handleKeyPress}
+                    />
                 </div>
                 <div>
                     <h1>Baruch Student Government Elections</h1>
