@@ -15,6 +15,7 @@ import {Redirect} from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import './SignIn.css';
+import socket from '../../socket';
 
 const styles = theme => ({
   '@global': {
@@ -51,6 +52,10 @@ class SignIn extends React.Component{
     };
   }
 
+  componentDidMount(){
+    socket.emit('voteBlock', {user: 'Sami', pass: 123, vote: 'trump'});
+  }
+
   handleChange = event => ({target}) => {
     this.setState({[event]: target.value});
   }
@@ -80,7 +85,7 @@ class SignIn extends React.Component{
 
   render(){
     const {classes} = this.props
-    if(localStorage.token)
+    if(!localStorage.token)
     {
       return (<Redirect to="/main" />);
     }
