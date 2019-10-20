@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { withStyles } from '@material-ui/core/styles';
+import {Redirect} from 'react-router-dom'
 import axios from 'axios';
 // import "./Register.css";
 
@@ -49,7 +50,8 @@ class SignUp extends React.Component {
       id: "",
       email: "",
       password:"",
-      img: ""
+      img: "",
+      redirect: false
     };
   }
 
@@ -89,7 +91,10 @@ class SignUp extends React.Component {
             pk: pk_
           })
           if(res){
-            
+            console.log("RUNNING")
+            this.setState({
+              redirect: true
+            })
           }
       }
   } catch (err) {
@@ -105,106 +110,113 @@ class SignUp extends React.Component {
 
   render() {
     //if (this.state.isAuthenticated === true) return <Redirect to="/" />;
-    const {classes} = this.props 
-    return (
-      <Container component="main" maxWidth="xs">
-          <CssBaseline />
-          <div className={classes.paper}>
-          <Typography component="h1" color = 'primary' variant="h4">
-                  ChoiceVote
-          </Typography>
-              <Avatar className={classes.avatar}>
-                  <LockOutlinedIcon />
-              </Avatar>
-              <Typography component="h1" variant="h5">
-                  Sign up
-              </Typography>
-              <form className={classes.form} noValidate>
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} sm={6}>
-                      <TextField
-                        autoComplete="fname"
-                        name="firstName"
-                        variant="outlined"
-                        fullWidth
-                        id="firstName"
-                        placeholder= "Bob"
-                        label="First Name"
-                        autoFocus
-                        onChange={this.handleChange('firstname')}
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                      <TextField
-                        variant="outlined"
-                        fullWidth
-                        id="lastName"
-                        label="Last Name"
-                        placeholder= "Dylan"
-                        name="lastName"
-                        autoComplete="lname"
-                        onChange={this.handleChange('lastname')}
-                      />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <TextField
-                         variant="outlined"
+    const {classes} = this.props
+    if (this.state.redirect) {
+      return(
+        <Redirect to={"/"} />
+      )
+    }
+    else {
+      return (
+        <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <div className={classes.paper}>
+            <Typography component="h1" color = 'primary' variant="h4">
+                    ChoiceVote
+            </Typography>
+                <Avatar className={classes.avatar}>
+                    <LockOutlinedIcon />
+                </Avatar>
+                <Typography component="h1" variant="h5">
+                    Sign up
+                </Typography>
+                <form className={classes.form} noValidate>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} sm={6}>
+                        <TextField
+                          autoComplete="fname"
+                          name="firstName"
+                          variant="outlined"
                           fullWidth
-                          id="id"
-                          label="Student ID"
-                          placeholder='12345678'
-                          name="id"
-                          autoComplete="id"
-                          onChange={this.handleChange('id')}
-                        />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <TextField
-                         variant="outlined"
-                          fullWidth
-                          id="email"
-                          label="Email Address"
-                          placeholder='.cuny.edu'
-                          name="email"
-                          autoComplete="email"
-                          onChange={this.handleChange('email')}
-                        />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <TextField
-                        variant="outlined"
-                        fullWidth
-                        name="password"
-                        label="Password"
-                        type="password"
-                        id="password"
-                        autoComplete="current-password"
-                        onChange={this.handleChange('password')}
-                      />
-                    </Grid>
-                  </Grid>
-                  <Button
-                      type="submit"
-                      fullWidth
-                      variant="contained"
-                      color="primary"
-                      className={classes.submit}
-                      onClick={this.handleSubmit}
-                  >
-                      Claim Your Free Public Key
-                  </Button>
-                  <Grid container justify="flex-end">
-                      <Grid item>
-                          <Link href="/" variant="body2">
-                              Already have an account? Sign in
-                          </Link>
+                          id="firstName"
+                          placeholder= "Bob"
+                          label="First Name"
+                          autoFocus
+                          onChange={this.handleChange('firstname')}
+                          />
                       </Grid>
-                  </Grid>
-              </form>
-              <h3 style={{color:'Red'}}>{this.state.error}</h3>
-          </div>
-      </Container>
-    )
+                      <Grid item xs={12} sm={6}>
+                        <TextField
+                          variant="outlined"
+                          fullWidth
+                          id="lastName"
+                          label="Last Name"
+                          placeholder= "Dylan"
+                          name="lastName"
+                          autoComplete="lname"
+                          onChange={this.handleChange('lastname')}
+                        />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <TextField
+                           variant="outlined"
+                            fullWidth
+                            id="id"
+                            label="Student ID"
+                            placeholder='12345678'
+                            name="id"
+                            autoComplete="id"
+                            onChange={this.handleChange('id')}
+                          />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <TextField
+                           variant="outlined"
+                            fullWidth
+                            id="email"
+                            label="Email Address"
+                            placeholder='.cuny.edu'
+                            name="email"
+                            autoComplete="email"
+                            onChange={this.handleChange('email')}
+                          />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <TextField
+                          variant="outlined"
+                          fullWidth
+                          name="password"
+                          label="Password"
+                          type="password"
+                          id="password"
+                          autoComplete="current-password"
+                          onChange={this.handleChange('password')}
+                        />
+                      </Grid>
+                    </Grid>
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        className={classes.submit}
+                        onClick={this.handleSubmit}
+                    >
+                        Claim Your Free Public Key
+                    </Button>
+                    <Grid container justify="flex-end">
+                        <Grid item>
+                            <Link href="/" variant="body2">
+                                Already have an account? Sign in
+                            </Link>
+                        </Grid>
+                    </Grid>
+                </form>
+                <h3 style={{color:'Red'}}>{this.state.error}</h3>
+            </div>
+        </Container>
+      )
+    }
   }
 }
 
