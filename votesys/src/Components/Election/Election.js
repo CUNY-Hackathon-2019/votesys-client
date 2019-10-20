@@ -25,9 +25,15 @@ export default class Election extends Component {
         }
     }
 
-    handleSubmit = () => {
-        let voteBlock = new Block(1,"1231",2); //TODO
+    handleSubmit = (event) => {
+        event.preventDefault();
+        let x = 0;
+        let num = parseInt(event.target.president.value, 10)
+        let voteBlock = new Block(x++,this.props.profile.pk,num); //TODO
         socket.emit('voteBlock', {voteBlock});
+        this.setState({
+            hasVoted: true
+        })
     }
 
     render() {
@@ -62,7 +68,7 @@ export default class Election extends Component {
                 <div>
                     <h1>Baruch Student Government Elections</h1>
                     <hr></hr>
-                    <form>
+                    <form onSubmit={this.handleSubmit}>
                         <div>
                             <h2>President:</h2>
                             <div>
@@ -87,7 +93,7 @@ export default class Election extends Component {
                                 </label>
                             </div>
                         </div>
-                        <submit><button onSubmit={this.handleSubmit}>VOTE!</button></submit>
+                        <input type ="submit" value="submit" />
                     </form>  
                 </div>
                 <hr></hr>
