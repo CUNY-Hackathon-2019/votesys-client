@@ -16,7 +16,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
-import logo from "./CUNY_Logo.png"
+import logo from "./Anon.png"
 
 const styles = theme => ({
     root: {
