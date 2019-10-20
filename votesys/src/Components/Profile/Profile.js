@@ -15,6 +15,22 @@ import {Redirect} from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 
+const styles = theme => ({
+    root: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        minHeight: 'fit-content'
+      },
+      avatar: {
+        width: 60,
+        height: 60
+      },
+      name: {
+        marginTop: theme.spacing(1)
+      }
+});
+
 export default class Profile extends Component {
     constructor(props) {
         super(props)
@@ -39,14 +55,15 @@ export default class Profile extends Component {
     }
 
     render() {
+        //const {classes} = this.props
         console.log(this.state)
         return (
             <div>
-                <div>
+                {/* <div>
                     <img src={this.state.img} />
                     <div>
                         <div>
-                            <h1>Hello {this.state.firstName} {this.state.lastName}</h1>
+                            <h1>{this.state.firstName} {this.state.lastName}</h1>
                             <hr></hr>
                             <h2>Welcome to Truly-Vote. Your vote is not held in any central repository, by any government or any organization. Instead, your vote is held on a decentralized blockchain system. </h2>
                             <hr></hr>
@@ -56,9 +73,22 @@ export default class Profile extends Component {
                         </div>
                         <button onClick={() => this.logout}>Logout</button>
                     </div>
-
-                </div>
-                
+                </div> */}
+                <Avatar
+                    alt="Person">
+                    {/* className={classes.avatar} */}
+                    {/* width=60
+                    height=60 */}
+                    src={this.state.img}
+                ></Avatar>
+                <Typography
+                    // className={classes.name}
+                    variant="h4"
+                >   
+                {this.state.firstname} {this.state.lastName}
+                </Typography>
+                <Typography variant="body2">{this.state.email}</Typography>
+                <Typography variant="body2">{this.state.pk}</Typography>     
             </div>
         )
     }
