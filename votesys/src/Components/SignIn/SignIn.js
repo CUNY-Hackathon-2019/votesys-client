@@ -15,6 +15,9 @@ import {Redirect} from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import './SignIn.css';
+import Profile from '../Profile/Profile'
+import Election from '../Election/Election'
+import Poll from '../Poll/Poll'
 
 const styles = theme => ({
   '@global': {
@@ -47,7 +50,8 @@ class SignIn extends React.Component{
       super(props);
       this.state = {
         email: "",
-        password:""
+        password:"",
+        loggedIn: false
     };
   }
 
@@ -79,10 +83,24 @@ class SignIn extends React.Component{
   }
 
   render(){
+
     const {classes} = this.props
-    if(localStorage.token)
+    if(!this.state.loggedIn)
     {
-      return (<Redirect to="/main" />);
+      let profile = {
+        firstName: "Edward",
+        lastName: "Snowden",
+        email: "me@me.com",
+        pk: "123456",
+        img: "https://upload.wikimedia.org/wikipedia/commons/6/60/Edward_Snowden-2.jpg"
+      }
+      return (
+        <div>
+          <Profile profile={profile} />
+          <Election profile={profile} />
+          <Poll />
+        </div>
+      );
     }
     return (
       <Container component="main" maxWidth="xs">
@@ -127,7 +145,7 @@ class SignIn extends React.Component{
                       variant="contained"
                       color="primary"
                       className={classes.submit}
-                      //onClick={this.handleSubmit}
+                      onClick={this.handleSubmit}
                   >
                       Sign In
                   </Button>
