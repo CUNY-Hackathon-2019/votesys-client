@@ -15,4 +15,5 @@ class Ledger{
         }
     }
 }
-module.exports = Ledger;
+
+export default Ledger;
