@@ -72,7 +72,7 @@ class SignIn extends React.Component{
       email: this.state.email,
       password: this.state.password
     }
-    let res = await axios.put("https://cuny-hacks-backend.herokuapp.com/api/auth", credentials)
+    let res = await axios.put("https://truly-vote-backend.herokuapp.com//api/auth", credentials)
     if (res) {
       this.setState({
         loggedIn: true,
