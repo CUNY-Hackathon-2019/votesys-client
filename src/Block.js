@@ -10,4 +10,4 @@ class Block{
 }
 
 
-module.exports = Block;
+export default Block;
