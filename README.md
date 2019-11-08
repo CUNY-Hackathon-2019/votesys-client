@@ -1,2 +1,3 @@
 # votesys-client
-frontend
+- frontend
+-  LICENSED
