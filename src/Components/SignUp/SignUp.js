@@ -72,7 +72,7 @@ class SignUp extends React.Component {
   };
 
   handleSubmit = async (event) => {
-    const apiLink = "link.com/api"
+    const apiLink = "https://truly-vote-backend.herokuapp.com/api/register"
     event.preventDefault();
     try {
       let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
